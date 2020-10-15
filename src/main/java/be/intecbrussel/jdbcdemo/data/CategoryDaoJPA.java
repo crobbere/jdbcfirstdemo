@@ -62,17 +62,17 @@ public class CategoryDaoJPA implements CategoryDao{
     @Override
     public void deleteCategory(Category category) {
         EntityManager em = null;
-
+        Category categoryToDelete;
         try{
             em = emf.createEntityManager();
+            categoryToDelete = em.find(Category.class, category.getId());
             em.getTransaction().begin();
-            em.remove(category);
+            em.remove(categoryToDelete);
             em.getTransaction().commit();
         }catch(Exception ex){
             ex.printStackTrace();
         }finally{
             if(em != null) em.close();
         }
-
     }
 }

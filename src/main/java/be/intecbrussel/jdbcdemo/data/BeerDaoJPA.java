@@ -78,9 +78,9 @@ public class BeerDaoJPA implements BeerDao{
         try{
             em = emf.createEntityManager();
             Beer beerToDelete = em.find(Beer.class, beer.getId());
+            em.getTransaction().begin();
             em.remove(beerToDelete);
-            em.flush();
-            em.clear();
+            em.getTransaction().commit();
         }catch(Exception ex){
             ex.printStackTrace();
         }finally{

@@ -70,7 +70,9 @@ public class BrewersDaoJPA implements BrewersDao{
         try{
             em = emf.createEntityManager();
             brewerToDelete = em.find(Brewers.class, brewer.getId());
+            em.getTransaction().begin();
             em.remove(brewerToDelete);
+            em.getTransaction().commit();
         }catch(Exception ex){
             ex.printStackTrace();
         }finally{
