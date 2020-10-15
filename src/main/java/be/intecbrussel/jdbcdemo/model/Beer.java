@@ -1,15 +1,24 @@
 package be.intecbrussel.jdbcdemo.model;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
+@Table(name = "Beers")
 public class Beer {
-
-
+@Id
     private int id;
+@Column(name = "Name")
     private String beerName;
+@Column(name = "Alcoholpercentage")
     private double alcoholPercentage;
+@Column(name = "Price")
     private double price;
+@Column(name ="Stock")
     private int stock;
+@ManyToOne
+@JoinColumn(name = "BrewerId")
+    private Brewers brewers;
+
 
     public Beer() {
     }

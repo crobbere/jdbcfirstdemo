@@ -6,10 +6,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BeerDaoJdbcImpl implements BeerDao {
     String CONNECTIONSTRING = "jdbc:mysql://localhost:3306/beersdb";
     String USERNAME = "root";
-    String PASSWORD = "root";
+    String PASSWORD = "nAt25PEx";
 
 
     @Override
